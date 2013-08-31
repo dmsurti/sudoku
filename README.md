@@ -37,3 +37,12 @@
 
 4. To solve the sudoku board run:
    (sudoku:solve board)
+
+### Run the tests
+
+1. You can run a test suite which tests 50 easy puzzles, 95 hard puzzles and 11
+   hardest puzzles. 
+   (These puzzles were downloaded from http://norvig.com/sudoku.html)
+   ```code
+   (asdf:oos 'asdf:load-op :sudoku)
+   ```
