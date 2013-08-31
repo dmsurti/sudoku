@@ -5,6 +5,7 @@
   :depends-on (#:cl-utilities)
   :components ((:file "package")
 	       (:file "utils")
+               (:file "formats")
                (:file "sudoku")))
 
 (asdf:defsystem #:sudoku-test
@@ -17,4 +18,5 @@
 
 (defmethod perform ((o test-op) (c (eql (find-system :sudoku))))
   (operate 'load-op :sudoku-test)
-  (funcall (intern (symbol-name :run-all-tests) (find-package :sudoku-test))))
+  (funcall (intern (symbol-name :run-all-tests) 
+                   (find-package :sudoku-test))))
