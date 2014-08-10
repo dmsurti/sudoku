@@ -1,5 +1,9 @@
 (in-package #:sudoku)
 
+;;; *******************
+;;; Sudoku Utility code
+;;; *******************
+
 (defun filter (fn lst)
   "Filters the list according to the predicate."
   (let ((acc nil))

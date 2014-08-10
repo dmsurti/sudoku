@@ -1,6 +1,8 @@
-;;;; sudoku.lisp
-
 (in-package #:sudoku)
+
+;;; **************** 
+;;; Solving a puzzle
+;;; **************** 
 
 (defun choices (board index)
   "Find the possible choices for a given square at index." 

@@ -46,7 +46,7 @@
    hardest puzzles. 
    
    ```code
-   (asdf:oos 'asdf:load-op :sudoku)
+   (asdf:oos 'asdf:test-op :sudoku)
    ```
    
    These puzzles were downloaded from http://norvig.com/sudoku.html.

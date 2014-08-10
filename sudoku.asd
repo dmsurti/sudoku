@@ -1,4 +1,6 @@
-;;;; cl-sudoku.asd
+;;;; *************
+;;;; Source system
+;;;; *************
 
 (asdf:defsystem #:sudoku
   :serial t
@@ -8,13 +10,29 @@
                (:file "formats")
                (:file "sudoku")))
 
+;;;; ***********
+;;;; Test system
+;;;; ***********
+
 (asdf:defsystem #:sudoku-test
   :serial t
-  :depends-on (#:sudoku)
+  :depends-on (#:sudoku #:cl-fad)
   :components ((:module "test"
                 :serial t
                 :components ((:file "package")
                              (:file "tests")))))
+
+;;;; *****************************
+;;;; Define path to test resources
+;;;; *****************************
+
+(defpackage #:app-config (:export #:*base-dir*))
+(defparameter app-config:*base-dir*
+  (make-pathname :name nil :type nil :defaults *load-truename*))
+
+;;;; *********
+;;;; Run Tests
+;;;; *********
 
 (defmethod perform ((o test-op) (c (eql (find-system :sudoku))))
   (operate 'load-op :sudoku-test)
