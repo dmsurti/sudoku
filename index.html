@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Sudoku by dmsurti</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Sudoku</h1>
+        <p>A sudoko solver in common lisp</p>
+        <p class="view"><a href="https://github.com/dmsurti/sudoku">View the Project on GitHub <small>dmsurti/sudoku</small></a></p>
+        <ul>
+          <li><a href="https://github.com/dmsurti/sudoku/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/dmsurti/sudoku/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/dmsurti/sudoku">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>
+<a id="loading" class="anchor" href="#loading" aria-hidden="true"><span class="octicon octicon-link"></span></a>Loading</h3>
+
+<h4>
+<a id="with-quicklisp" class="anchor" href="#with-quicklisp" aria-hidden="true"><span class="octicon octicon-link"></span></a>With Quicklisp</h4>
+
+<ol>
+<li>
+<p>Clone sudoku into your quicklisp local-projects directory.</p>
+
+<pre lang="code"><code>cd ~/quicklisp/local-projects
+git clone git@github.com:dmsurti/sudoku.git
+</code></pre>
+</li>
+<li>
+<p>Load with</p>
+
+<pre lang="code"><code>(ql:quickload "sudoku")
+</code></pre>
+</li>
+</ol>
+
+<h4>
+<a id="without-quicklisp-but-why" class="anchor" href="#without-quicklisp-but-why" aria-hidden="true"><span class="octicon octicon-link"></span></a><del>Without Quicklisp (But why?)</del>
+</h4>
+
+<ol>
+<li><p>Ensure sudoku.asd is in your ASDF path.</p></li>
+<li><p>Load with (asdf:oos 'asdf:load-op 'sudoku)</p></li>
+</ol>
+
+<h3>
+<a id="define-an-incomplete-board-and-solve-it" class="anchor" href="#define-an-incomplete-board-and-solve-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>Define an incomplete board and solve it</h3>
+
+<ol>
+<li>
+<p>Create an incomplete, unsolved sudoku board as follows:</p>
+
+<pre lang="code"><code>(setf board
+     #(0 0 2 4 7 0 0 5 8 
+       0 0 0 0 0 0 0 0 0 
+       0 0 0 0 0 1 0 4 0 
+       0 0 0 0 2 0 0 0 9 
+       5 2 8 0 9 0 4 0 0 
+       0 0 9 0 0 0 1 0 0 
+       0 0 0 0 0 0 0 3 0 
+       3 0 0 0 0 7 5 0 0 
+       6 8 5 0 0 2 0 0 0))
+</code></pre>
+</li>
+<li>
+<p>To solve the sudoku board and print the solution run:</p>
+
+<pre lang="code"><code>(sudoku:print-board (sudoku:solve board))
+</code></pre>
+</li>
+</ol>
+
+<h3>
+<a id="run-the-tests" class="anchor" href="#run-the-tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Run the tests</h3>
+
+<ol>
+<li>
+<p>You can run a test suite which tests 50 easy puzzles, 95 hard puzzles and 11
+hardest puzzles. </p>
+
+<pre lang="code"><code>(asdf:oos 'asdf:test-op :sudoku)
+</code></pre>
+
+<p>These puzzles were downloaded from <a href="http://norvig.com/sudoku.html">http://norvig.com/sudoku.html</a>.</p>
+</li>
+</ol>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/dmsurti">dmsurti</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
